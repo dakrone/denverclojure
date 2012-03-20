@@ -1,5 +1,5 @@
 (ns denverclojure.core
-  (:use noir.core)
+  (:use [noir.core])
   (:require [noir.server :as server]))
 
 (defpage "/" []
