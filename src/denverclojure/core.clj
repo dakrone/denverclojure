@@ -2,16 +2,16 @@
   (:use [noir.core]
         [hiccup.core]
         [hiccup.page]
-        [hiccup.element])
+        [hiccup.form]
+        [hiccup.element]
+        [cheshire.core])
   (:require [noir.server :as server]))
+
 (defpage "/user/:id" {:keys [id]}
   (str "Hello " id))
 
 (defpage "/path/:var" {:keys [var]}
   var)
-
-(defpage [:post "/input"] {:keys [user pass]}
-  (str "User: " user ", Password: " pass))
 
 (defpage "/html" []
   (html [:div#foo.bar "Hello World"]))
@@ -43,6 +43,22 @@
   (html5
    [:center [:h1 "Welcome to Denver Clojure"]]
    [:ul (map make-user members)]))
+
+(defpage "/users.json" []
+  (encode members))
+
+(defpage [:post "/input"] {:keys [user pass]}
+  (html5
+   (if (= pass "clojure")
+     [:h2 "Logged in!"]
+     [:h2 "Nope."])))
+
+(defpage "/form" []
+  (html5
+   (form-to [:post "/input"]
+            [:p "Username:" (text-field "user")]
+            [:p "Password:" (password-field "pass")]
+            (submit-button "submit"))))
 
 (defn -main [& [port]]
   (server/start (Integer. (or port "8080"))))
