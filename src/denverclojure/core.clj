@@ -53,6 +53,13 @@
      [:h2 "Logged in!"]
      [:h2 "Nope."])))
 
+(defpage "/overtone" []
+  html
+  [:h2 "links"]
+  [:ul]
+  [:li "whatever" "http://overtone-video.org"]
+)
+
 (defpage "/form" []
   (html5
    (form-to [:post "/input"]
