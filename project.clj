@@ -3,4 +3,5 @@
   :description "The Denver Clojure website"
   :dependencies [[org.clojure/clojure "1.3.0"]
                  [noir "1.3.0-beta2"]]
+  :dev-dependencies [[lein-swank "1.4.3"]]
   :main denverclojure.core)

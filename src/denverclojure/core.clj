@@ -54,11 +54,10 @@
      [:h2 "Nope."])))
 
 (defpage "/overtone" []
-  html
-  [:h2 "links"]
-  [:ul]
-  [:li "whatever" "http://overtone-video.org"]
-)
+  (html
+   [:h2 "links"]
+   [:ul
+    [:li [:a {:href "http://overtone.github.com/"} "Overtone, music creation using Clojure"]]]))
 
 (defpage "/form" []
   (html5
@@ -69,4 +68,6 @@
 
 (defn -main [& [port]]
   (server/start (Integer. (or port "8080"))))
+
+;; (defonce denverclojure-server (server/start 8080))
 
