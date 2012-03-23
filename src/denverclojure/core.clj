@@ -56,6 +56,7 @@
 
 (defpage "/" []
   (html5
+   (include-css "/css/denverclojure.css")
    [:h1 "Welcome to Denver Clojure"]
    [:h2 "Members of Denver Clojure"]
    [:ul#members (map make-user members)]
