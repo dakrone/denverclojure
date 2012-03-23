@@ -30,19 +30,38 @@
                :github "http://aoeu.com"}
               {:name "J......"
                :github "http://kitties.com"}
+              {:name "Gregory"
+               :github "http://github.com/gregoryg"}
               {:name "Bart"
                :github "http://github.com/kasterma"}])
 
+(def links [{:url "http://overtone.github.com/" :desc "A music creation using Clojure" :link-text "Overtone"}
+            {:url "http://webnoir.org/" :desc "Noir, a web framework"}
+            {:url "https://github.com/cgrand/enlive" :desc "A templating system for Clojure with CSS-like selectors" :link-text "Enlive"}
+            
+            ])
+            
+            
+
 (defpartial make-user [member]
   [:li (str (:name member) " - ") (link-to (:github member) "github")])
+
+(defpartial make-link [link]
+  [:li (link-to (:url link)
+                (if (:link-text link) (:link-text link) (:desc link)))
+   (when (:link-text link) (str " - " (:desc link)))])
 
 (defpartial valid-html []
   [:html [:head [:title "Denver Clojure"]]])
 
 (defpage "/" []
   (html5
-   [:center [:h1 "Welcome to Denver Clojure"]]
-   [:ul (map make-user members)]))
+   [:h1 "Welcome to Denver Clojure"]
+   [:h2 "Members of Denver Clojure"]
+   [:ul#members (map make-user members)]
+   [:h2 "Interesting links"]
+   [:ul#links (map make-link links)]
+    ))
 
 (defpage "/users.json" []
   (encode members))
@@ -52,12 +71,6 @@
    (if (= pass "clojure")
      [:h2 "Logged in!"]
      [:h2 "Nope."])))
-
-(defpage "/overtone" []
-  (html
-   [:h2 "links"]
-   [:ul
-    [:li [:a {:href "http://overtone.github.com/"} "Overtone, music creation using Clojure"]]]))
 
 (defpage "/form" []
   (html5
