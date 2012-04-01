@@ -26,8 +26,8 @@
 
 (def members [{:name "Lee"
                :github "http://github.com/dakrone"}
-              {:name "Daniel"
-               :github "http://aoeu.com"}
+              {:name "Daniel Glauser"
+               :github "https://github.com/danielglauser"}
               {:name "J......"
                :github "http://kitties.com"}
               {:name "Gregory"
@@ -38,10 +38,10 @@
 (def links [{:url "http://overtone.github.com/" :desc "A music creation using Clojure" :link-text "Overtone"}
             {:url "http://webnoir.org/" :desc "Noir, a web framework"}
             {:url "https://github.com/cgrand/enlive" :desc "A templating system for Clojure with CSS-like selectors" :link-text "Enlive"}
-            
+
             ])
-            
-            
+
+
 
 (defpartial make-user [member]
   [:li (str (:name member) " - ") (link-to (:github member) "github")])
@@ -84,4 +84,3 @@
   (server/start (Integer. (or port "8080"))))
 
 ;; (defonce denverclojure-server (server/start 8080))
-
