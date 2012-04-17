@@ -20,20 +20,20 @@
   (html [:h1 "Starting Clojure!"]
         [:p "So you've decided to dabble in Clojure?
              Before you get started there are a few things you'll need
-             before you get hacking."]
+             to get you going!"]
         [:h3 "Installing Leiningen:"]
         [:ol "Leiningen makes working with Clojure bareable. Most people think
              its the bee's knees and we'll be using it to make and use projects
-             at the Denver Clojure Meetup. You can find the link to technomancy's
-             leiningen GitHub below. Install instructions are also located
-             on the page."]
+             at our meetups. You can find the link to 
+             leiningen below. Install instructions are also located
+             on this page."]
         [:ol (link-to "https://github.com/technomancy/leiningen" "Leiningen")]
         [:h3 "Installing Emacs and Marmalade:"]
         [:ol "You can use any text editor you wish to edit your clojure files,
-             but it would probably be we'll be using Emacs and several of it's
-             extensions at the meetups. If you aren't interested in installing
-             or learning emacs, then the rest of this may not be useful for you
-             as it has to deal with setting up emacs to work with Clojure."]
+             but  we'll be using emacs and several of it's
+             extensions at the meetups. The rest of this tutorial involves setting
+             up emacs to work with Clojure, so if you wish to use a different text
+             editor, the remainder of this tutorial is probably not worth your time."]
         [:ol (link-to "http://emacsformacosx.com/" "Emacs for OSX")
          " You'll probably be safe installing v24."]
         [:ol (link-to "https://code.google.com/p/emacs-for-windows/downloads/list"
