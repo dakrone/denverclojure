@@ -56,7 +56,9 @@
               {:name "Gregory"
                :github "http://github.com/gregoryg"}
               {:name "Bart"
-               :github "http://github.com/kasterma"}])
+               :github "http://github.com/kasterma"}
+              {:name "Kurt Harriger"
+               :github "http://github.com/kurtharriger"}])
 
 (def links [{:url "http://overtone.github.com/"
              :desc "A music creation using Clojure" :link-text "Overtone"}
@@ -64,7 +66,10 @@
              :desc "Noir, a web framework"}
             {:url "https://github.com/cgrand/enlive"
              :desc "A templating system for Clojure with CSS-like selectors"
-             :link-text "Enlive"}])
+             :link-text "Enlive"}
+            {:url "http://fullcontact.com"
+             :desc "Turns partial contacts into full contacts!"
+             :link-text "FullContact"}])
 
 (defpartial make-user [member]
   [:li (str (:name member) " - ") (link-to (:github member) "github")])
